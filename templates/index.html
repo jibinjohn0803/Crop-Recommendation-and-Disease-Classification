@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>JiAN App</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<h1>Crop Recommendation & Disease Identification</h1>
+<br>
+<body>
+ <div class="login">
+     <div class="row">
+  <div class="column">
+      <h1>Predict Ideal Crop For Farming</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict1')}}"method="post">
+    	<input type="number" name="Temperature" placeholder="Temperature (in C)" required="required" />
+        <input type="number" name="PH" placeholder="PH" required="required" />
+		<input type="number" name="Rainfall" placeholder="Rainfall" required="required" />
+        <input type="number" name="Phosphorous" placeholder="Phosphorous" required="required" />
+        <input type="number" name="Nitrogen" placeholder="Nitrogen" required="required" />
+        <input type="number" name="Potash" placeholder="Potassium" required="required" />
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+      <br>
+      <br>
+        {{ prediction_text1 }}
+
+
+  </div>
+  <div class="column">
+      <h1>Crop Disease Classification</h1>
+
+
+     <form action="/upload-image" method="POST" enctype="multipart/form-data">
+
+        <div class="form-group">
+          <label>Select image</label>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" name="image" id="image">
+            <label class="custom-file-label" for="image">Upload an image...</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Predict Disease</button>
+
+      </form>
+
+      <br>
+      <br>
+        {{ prediction_text2 }}
+
+  </div>
+</div>
+
+
+
+
+ </div>
+
+
+</body>
+</html>
