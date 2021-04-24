@@ -5,7 +5,7 @@ This is a project to classify various crop diseases and recommend crops based on
 You must have Scikit Learn, Pandas (for Machine Leraning Model) and Flask (for API) installed.
 
 ### Project Structure
-This project has four major parts :
+This project has three major parts :
 1. Maximize Crop Yield Using AI.ipynb - This contains code for development/training of Machine Learning models and saving it for further use.
 2. app.py - This contains Flask APIs that receives crop details through GUI, computes the precited value based on our model and returns it.
 4. templates - This folder contains the HTML template to allow user to enter crop details (images as well) to predict ideal crop (or disease identification for images).
@@ -17,6 +17,9 @@ As the trained model is already saved in the repository , the model can be downl
 ```
 python app.py
 ```
+
+Make sure the DecisionModel.pkl, scale.pkl and CNNModel.h5 files are downloaded as well in the same repository
+
 By default, flask will run on port 5000.
 
 3. Navigate to URL http://localhost:5000
